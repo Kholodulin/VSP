@@ -1,4 +1,0 @@
-﻿  laba4.cpp
-C:\Users\Максим\Desktop\Prod\C++\labaVSP\laba4\laba4.cpp(91,23): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Максим\Desktop\Prod\C++\labaVSP\laba4\laba4.cpp(96,20): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-  laba4.vcxproj -> C:\Users\Максим\Desktop\Prod\C++\labaVSP\laba4\x64\Debug\laba4.exe
