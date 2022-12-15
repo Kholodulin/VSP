@@ -5,6 +5,7 @@ ShowQueue::ShowQueue(QWidget *parent) :
     ui(new Ui::ShowQueue)
 {
     ui->setupUi(this);
+    ui->next->hide();
 }
 int ShowQueue::patID=0;
 std::queue<int> ShowQueue::patientQueue;
@@ -42,6 +43,7 @@ void ShowQueue::on_enter_clicked()
         emit openWinToMain(winNum);
         emit openWinToScreen(winNum);
         ui->label_2->setText(("Окно " + QString::number(winNum)));
+        ui->next->show();
     }
     else{
         QMessageBox::warning(this,"Error","\nwrong login or password");

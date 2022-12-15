@@ -84,6 +84,9 @@ void WidgetScreen::closeWin(int num)
         break;
     }
 }
+void WidgetScreen::closeEvent(QCloseEvent *e){
+    emit closeScreen();
+}
 WidgetScreen::~WidgetScreen()
 {
 

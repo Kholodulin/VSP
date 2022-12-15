@@ -45,6 +45,9 @@ void MainWidget::on_queuing_clicked()
     window1->setMaximumHeight(1000000);
     window1->setMaximumWidth(1000000);
 }
+void MainWidget::closeEvent(QCloseEvent *e){
+    delete window1;
+}
 
 void MainWidget::on_showQueue_clicked()
 {
@@ -68,7 +71,7 @@ void MainWidget::on_login_clicked()
                 connect(screens[i].getWin(),&ShowQueue::closeWinToMain,this,&MainWidget::closeWinFind);
                 connect(this,&MainWidget::closeWinToScreen,window2,&WidgetScreen::closeWin);
                 connect(screens[i].getWin(),&ShowQueue::closeNULLToMain,this,&MainWidget::closeNULL);
-
+                connect(window2,&WidgetScreen::closeScreen,this,&MainWidget::closeScr);
                 break;
             }else
                 if(i==2){QMessageBox::information(this,"Меного включеных окон","Разрешено не больше 3-х работающих окон");}
@@ -77,6 +80,10 @@ void MainWidget::on_login_clicked()
     else {
         QMessageBox::warning(this,"ошибка","Необходимо сначало\nвключить экран");
     }
+}
+
+void MainWidget::closeScr(){
+    delete window2;
 }
 
 void MainWidget::on_pushButton_clicked()
@@ -98,8 +105,8 @@ void MainWidget::closeWinFind(int num)
     std::vector<Screen>::iterator it = screens.begin();
     for(int i=0; i<screens.size();i++){
         if(screens[i].winNum==num){
-
             emit closeWinToScreen(i);
+            delete screens[i].window3;
             screens.erase(it);
             break;
         }
@@ -112,8 +119,6 @@ void MainWidget::closeNULL(){
     std::vector<Screen>::iterator it = screens.begin();
     for(int i=0; i<screens.size();i++){
         if(screens[i].winNum<0){
-
-            emit closeWinToScreen(i);
             screens.erase(it);
             break;
         }

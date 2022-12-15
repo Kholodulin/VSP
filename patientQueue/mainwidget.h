@@ -28,7 +28,7 @@ public:
         void setWinNum(int num);
         int getWinNum();
     };
-
+    void closeEvent(QCloseEvent *e)override;
 private:
     static int winCount;
     Ui::MainWidget *ui;
@@ -44,11 +44,11 @@ private slots:
 
 signals:
     void closeWinToScreen(int num);
-
 public slots:
     void openWinInfo(int num);
     void closeWinFind(int num);
     void closeNULL();
+    void closeScr();
 };
 
 #endif // MAINWIDGET_H

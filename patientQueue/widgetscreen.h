@@ -14,6 +14,7 @@ class WidgetScreen : public QWidget
 public:
     explicit WidgetScreen(QWidget *parent = nullptr);
     int winNum[3]{0,0,0};
+    void closeEvent(QCloseEvent *e)override;
     ~WidgetScreen();
 
 private:
@@ -24,5 +25,7 @@ public slots:
     void openWin(int num);
     void next(int numWin, int numQueue);
     void closeWin(int num);
+signals:
+    void closeScreen();
 };
 #endif
